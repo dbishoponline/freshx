@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.transform = exports.transformRecord = exports.bodyRecord = exports.headerRecord = void 0;
+exports.default = exports.transform = exports.transformRow = exports.bodyRow = exports.headerRow = void 0;
 
 var _ramda = require("ramda");
 
@@ -20,21 +20,21 @@ var Record = function Record(record) {
   return record;
 };
 
-var headerRecord = function headerRecord(columns) {
+var headerRow = function headerRow(columns) {
   return columns.map(function (val) {
     return val.slice(0, 1).toString();
   });
 };
 
-exports.headerRecord = headerRecord;
+exports.headerRow = headerRow;
 
-var bodyRecord = function bodyRecord(record) {
-  return transformRecord(record);
+var bodyRow = function bodyRow(record) {
+  return transformRow(record);
 };
 
-exports.bodyRecord = bodyRecord;
+exports.bodyRow = bodyRow;
 
-var transformRecord = function transformRecord(record) {
+var transformRow = function transformRow(record) {
   var organization = record[0];
   var firstName = record[1];
   var lastName = record[2];
@@ -62,11 +62,11 @@ var transformRecord = function transformRecord(record) {
   });
 };
 
-exports.transformRecord = transformRecord;
+exports.transformRow = transformRow;
 var count = 0;
 
 var transform = function transform(record) {
-  var newRecord = !count ? headerRecord(quickbooksColumns) : bodyRecord(Record(record));
+  var newRecord = !count ? headerRow(quickbooksColumns) : bodyRow(Record(record));
   count++;
   return newRecord;
 };
