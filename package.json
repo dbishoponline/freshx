@@ -10,7 +10,7 @@
   },
   "preferGlobal": true,
   "main": "dist/index.js",
-  "bin": "./scripts/transform.sh",
+  "bin": "./bin/transform",
   "scripts": {
     "transform": "./scripts/transform.sh",
     "debug": "./scripts/debug.sh",
